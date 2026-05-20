@@ -14,7 +14,7 @@ export default function Contact() {
       <section className="relative py-24 bg-[#111111] overflow-hidden border-b-8 border-primary">
         <div className="absolute inset-0 opacity-20 dense-pattern pointer-events-none"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter"
@@ -30,9 +30,9 @@ export default function Contact() {
 
       <section className="pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
+
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -50,12 +50,12 @@ export default function Contact() {
                   <input type="tel" required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm" />
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">Email</label>
                 <input type="email" required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm" />
               </div>
-              
+
               <div>
                 <label className="block text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">Service Required / Subject</label>
                 <select className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors appearance-none font-bold text-sm">
@@ -78,7 +78,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Info Grid */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -88,13 +88,13 @@ export default function Contact() {
               <div className="bg-white p-8 border border-gray-200 border-l-4 border-l-[#111111] text-center shadow-sm">
                 <MapPin className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="text-[#111111] font-black mb-2 uppercase tracking-wide">Location</h3>
-                <p className="text-gray-600 text-xs font-bold">123 Rider Avenue<br/>Auto District<br/>Metropolis, MC 10001</p>
+                <p className="text-gray-600 text-xs font-bold">Shop No. 1/12, Opposite Canara Bank<br />3rd Cross, JC Road<br />Bangalore - 560002</p>
               </div>
               <div className="bg-white p-8 border border-gray-200 border-l-4 border-l-[#111111] text-center shadow-sm">
                 <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h3 className="text-[#111111] font-black mb-2 uppercase tracking-wide">Contact</h3>
-                <p className="text-gray-600 text-xs font-bold mb-1">+91 999 999 9999</p>
-                <p className="text-gray-600 text-xs font-bold">service@ridex.com</p>
+                <p className="text-gray-600 text-xs font-bold mb-1">+91 98285 25294</p>
+                <p className="text-gray-600 text-xs font-bold">info@bikemagicshop.com</p>
               </div>
               <div className="bg-[#111111] p-8 border border-gray-800 text-center md:col-span-2 shadow-sm border-t-4 border-t-primary">
                 <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
@@ -114,28 +114,34 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="h-64 bg-gray-200 border-4 border-white w-full flex items-center justify-center p-4 shadow-sm relative">
-              <div className="absolute inset-0 opacity-10 dense-pattern-light pointer-events-none"></div>
-               <div className="text-center relative z-10">
-                 <MapPin className="w-12 h-12 text-gray-700 mx-auto mb-2" />
-                 <p className="text-gray-500 font-mono text-sm uppercase tracking-widest">Interactive Map Placeholder</p>
-               </div>
+            <div className="h-64 w-full shadow-sm relative overflow-hidden border-4 border-white bg-gray-200 group">
+              <iframe 
+                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=JC%20Road,%20Bangalore+(Bike%20Magic)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Bike Magic Location"
+                className="absolute inset-0 w-full h-full grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700"
+              />
             </div>
           </motion.div>
 
         </div>
       </section>
-      
+
       {/* Floating Action Button for WhatsApp */}
-      <a 
-        href="https://wa.me/919999999999" 
-        target="_blank" 
+      <a
+        href="https://wa.me/917947147781"
+        target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform"
         aria-label="Contact on WhatsApp"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
         </svg>
       </a>
     </div>

@@ -3,10 +3,10 @@ import { motion } from 'motion/react';
 import { Star, MessageSquare } from 'lucide-react';
 
 const stories = [
-  { id: 1, name: 'Jason M.', bike: 'Ducati Panigale V4', text: 'The level of service here is unmatched. They tuned my V4 to absolute perfection. Best workshop in the city, hands down.', rating: 5, date: 'October 2025', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80' },
-  { id: 2, name: 'Elena R.', bike: 'Triumph Bonneville T120', text: 'I brought in my classic Bonnie for a full detailing and minor repairs. It looks like it just rolled out of the showroom.', rating: 5, date: 'September 2025', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80' },
-  { id: 3, name: 'Marcus T.', bike: 'BMW R 1250 GS', text: 'Got my GS serviced before a cross-country trip. The mechanics knew exactly what areas needed reinforcing for long hauls.', rating: 5, date: 'August 2025', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80' },
-  { id: 4, name: 'Sophia L.', bike: 'Kawasaki Ninja ZX-10R', text: 'Bought my riding gear here. The staff was incredibly knowledgeable and helped me find the perfect fit. Great store selection.', rating: 4.8, date: 'August 2025', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
+  { id: 1, name: 'Thajudheen.', bike: 'Ducati Panigale V4', text: 'The level of service here is unmatched. They tuned my V4 to absolute perfection. Best workshop in the city, hands down.', rating: 5, date: 'October 2025', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80' },
+  { id: 2, name: 'Naveen Kumar A .', bike: 'Triumph Bonneville T120', text: 'I brought in my classic Bonnie for a full detailing and minor repairs. It looks like it just rolled out of the showroom.', rating: 5, date: 'September 2025', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80' },
+  { id: 3, name: 'Takhi Ur Rehman.', bike: 'BMW R 1250 GS', text: 'Got my GS serviced before a cross-country trip. The mechanics knew exactly what areas needed reinforcing for long hauls.', rating: 5, date: 'August 2025', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80' },
+  { id: 4, name: 'Riyas.', bike: 'Kawasaki Ninja ZX-10R', text: 'Bought my riding gear here. The staff was incredibly knowledgeable and helped me find the perfect fit. Great store selection.', rating: 4.8, date: 'August 2025', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
 ];
 
 export default function Stories() {

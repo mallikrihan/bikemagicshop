@@ -30,7 +30,6 @@ export default function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Store', path: '/store' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Stories', path: '/stories' },
     { name: 'Contact', path: '/contact' },
@@ -39,44 +38,70 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300 border-b-4 border-primary shrink-0',
-        scrolled ? 'bg-[#111111] py-3 shadow-lg' : 'bg-[#111111] py-4'
+        'fixed top-0 w-full z-50 transition-all duration-300 border-b-[3px] border-primary/95 shrink-0',
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-2xl' : 'bg-white/95 backdrop-blur-sm'
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Top sliding marquee bar */}
+      <div className={cn(
+        "bg-[#111111] border-b border-gray-900/60 py-2 text-[9px] font-black tracking-widest text-gray-300 uppercase font-display transition-all duration-300 overflow-hidden flex items-center",
+        scrolled ? "max-h-0 py-0 border-b-0 opacity-0" : "max-h-8 opacity-100"
+      )}>
+        {/* @ts-ignore */}
+        <marquee scrollamount="6" className="w-full flex items-center">
+          <span className="inline-flex items-center gap-12 px-4 pt-0.5">
+            <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> WORKSHOP STATUS: ONLINE</span>
+            <span className="text-primary">★</span>
+            <span>LIVE CAPACITY: 82%</span>
+            <span className="text-primary">★</span>
+            <span>J.C. ROAD, BANGALORE</span>
+            <span className="text-primary">★</span>
+            <span>HQ TUNING DESK</span>
+            <span className="text-primary">★</span>
+            <span>PREMIUM EXHAUSTS</span>
+            <span className="text-primary">★</span>
+            <span>ECU REMAPPING</span>
+          </span>
+        {/* @ts-ignore */}
+        </marquee>
+      </div>
+
+      <div className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300", scrolled ? "py-3" : "py-4.5")}>
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-[#E50914] flex items-center justify-center rotate-45">
-              <div className="-rotate-45 text-white font-black text-xl">RX</div>
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-9 h-9 bg-primary flex items-center justify-center rotate-45 group-hover:rotate-90 transition-transform duration-500">
+              <div className="-rotate-45 group-hover:-rotate-90 transition-transform duration-500 text-white font-black text-sm font-display">BM</div>
             </div>
-            <span className="text-white font-black text-2xl tracking-tighter uppercase ml-2">
-              RIDEX <span className="text-primary">GARAGE</span>
+            <span className="text-black font-black text-xl tracking-tighter uppercase ml-1 italic font-display">
+              BIKE<span className="text-primary">MAGIC</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  'text-[10px] font-bold tracking-widest uppercase transition-colors hover:text-primary',
-                  location.pathname === link.path ? 'text-primary' : 'text-white'
+                  'text-[10px] font-black tracking-widest uppercase transition-all py-2.5 px-4 font-display',
+                  location.pathname === link.path
+                    ? 'text-white bg-primary'
+                    : 'text-gray-800 hover:text-white hover:bg-primary/80'
                 )}
               >
                 {link.name}
               </Link>
             ))}
-            <a href="tel:+919999999999" className="bg-primary text-white px-6 py-2.5 text-[10px] font-bold uppercase hover:bg-red-700 transition-colors shadow-lg flex items-center gap-2">
-              <Phone className="w-4 h-4" /> Call Now
+            <a href="tel:+919828525294" className="bg-primary hover:bg-red-700 text-white px-4 py-2.5 text-[8.5px] font-black uppercase tracking-wider transition-all shadow-md shadow-red-950/20 flex items-center gap-1.5 font-display hover:-translate-y-0.5 ml-2">
+              <Phone className="w-3 h-3" /> Call Workshop
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-4">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white hover:text-primary transition-colors">
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <button onClick={() => setIsOpen(!isOpen)} className="text-black hover:text-primary transition-colors p-2 border border-gray-300 bg-white shadow-sm">
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -85,18 +110,18 @@ export default function Navbar() {
       {/* Mobile Nav */}
       <div
         className={cn(
-          'md:hidden absolute top-full left-0 w-full bg-[#111111] transition-all duration-300 overflow-hidden border-b-4 border-primary',
+          'md:hidden absolute top-full left-0 w-full bg-white transition-all duration-300 overflow-hidden border-b-2 border-primary/80 shadow-xl',
           isOpen ? 'max-h-96' : 'max-h-0 border-b-0'
         )}
       >
-        <div className="px-4 py-4 space-y-0">
+        <div className="px-4 py-2 space-y-0 bg-white divide-y divide-gray-100">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               className={cn(
-                'block py-4 text-xs font-black tracking-widest uppercase border-b border-[#222222] last:border-0 relative hover:bg-[#222] px-4 -mx-4',
-                location.pathname === link.path ? 'text-primary' : 'text-white hover:text-primary'
+                'block py-4 text-xs font-black tracking-widest uppercase transition-colors px-4 -mx-4 font-display',
+                location.pathname === link.path ? 'text-white bg-primary' : 'text-gray-800 hover:text-white hover:bg-primary/80'
               )}
             >
               {link.name}

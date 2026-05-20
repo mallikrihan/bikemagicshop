@@ -1,43 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
   
-  --color-primary: #E50914;
-  --color-secondary: #111111;
-  --color-accent: #222222;
-  --color-bg-light: #F3F4F6;
+  --color-primary: #D61827; /* HTRZ Modz Crimson Red */
+  --color-secondary: #111111; /* Near black */
+  --color-accent: #1C1B1B; /* Dark charcoal */
+  --color-bg-light: #F4F4F4; /* Cool light grey */
   --color-bg-dark: #111111;
 
   --animate-fade-in: fadeIn 0.5s ease-out forwards;
   --animate-slide-up: slideUp 0.6s ease-out forwards;
+  --animate-ken-burns: kenBurns 20s ease-out infinite alternate;
 }
 
 @layer base {
   body {
-    @apply font-sans antialiased bg-[#F3F4F6] text-[#111111];
+    font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F4F4F4;
+    color: #111111;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: -0.025em;
   }
 }
 
 @layer utilities {
   .glass-card {
-    @apply bg-white border border-gray-200 shadow-sm rounded-none;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0px;
   }
   .glass-card-dark {
-    @apply bg-[#111111] border border-gray-800 shadow-sm rounded-none;
+    background-color: #1C1B1B;
+    border: 1px solid #1f2937;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0px;
   }
-  .text-shadow {
-    text-shadow: 2px 2px 0px rgba(0,0,0,1);
+  .text-shadow-premium {
+    text-shadow: 2px 2px 0px rgba(214, 24, 39, 0.3);
   }
   .dense-pattern {
-    background-image: repeating-linear-gradient(45deg, #222 0, #222 1px, transparent 0, transparent 50%);
-    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #1C1B1B 0, #1C1B1B 1px, transparent 0, transparent 50%);
+    background-size: 8px 8px;
   }
   .dense-pattern-light {
-    background-image: repeating-linear-gradient(45deg, #e5e7eb 0, #e5e7eb 1px, transparent 0, transparent 50%);
-    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #eaeaea 0, #eaeaea 1px, transparent 0, transparent 50%);
+    background-size: 8px 8px;
+  }
+  .mesh-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+  .mesh-grid-dark {
+    background-size: 30px 30px;
+    background-image: linear-gradient(to right, rgba(214, 24, 39, 0.04) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(214, 24, 39, 0.04) 1px, transparent 1px);
   }
 }
 
@@ -47,6 +73,12 @@
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes kenBurns {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.12); }
+}
+

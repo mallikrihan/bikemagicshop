@@ -1,113 +1,191 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Target, Award, Users, Star } from 'lucide-react';
+import { Shield, MapPin, Phone, Clock, Star, Compass, ExternalLink, ShieldCheck } from 'lucide-react';
 
 export default function About() {
   return (
-    <div className="bg-[#F3F4F6] min-h-screen">
-      {/* Header */}
-      <section className="relative py-24 bg-[#111111] overflow-hidden border-b-8 border-primary">
-        <div className="absolute inset-0 opacity-20 dense-pattern pointer-events-none"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter"
-          >
-            Our Story
-          </motion.h1>
-          <div className="w-24 h-2 bg-primary mx-auto mb-6"></div>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-bold tracking-widest text-xs uppercase">
-            Passionate mechanics, premium gear, & an unmatched dedication to motorcycles.
-          </p>
+    <div className="bg-black min-h-screen text-white pb-24">
+      
+      {/* Hero Parallax Header */}
+      <section className="relative py-32 overflow-hidden border-b-[3px] border-primary/95 mesh-grid bg-black">
+        <div className="absolute inset-0 opacity-15 dense-pattern pointer-events-none"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+          <div className="text-center">
+            {/* Live Telemetry Indicators */}
+            <div className="inline-flex flex-wrap items-center justify-center gap-3 mb-6 bg-black/60 backdrop-blur-md px-4 py-2 border border-gray-900 rounded-sm">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-green-400 font-display">
+                WORKSHOP STATUS: OPEN NOW
+              </span>
+              <span className="text-gray-700">|</span>
+              <div className="flex items-center gap-1">
+                <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+                <span className="text-[10px] font-black text-white font-display">4.3 GOOGLE SCORE</span>
+              </div>
+            </div>
+
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-7xl font-black text-white mb-4 uppercase tracking-tighter font-display"
+            >
+              ABOUT BIKE MAGIC
+            </motion.h1>
+            <div className="w-20 h-1.5 bg-primary mx-auto mb-6"></div>
+            
+            <p className="text-xs text-primary max-w-xl mx-auto font-black tracking-[0.25em] uppercase font-display">
+              Motorcycle parts store • J.C. Road mods specialists
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section className="py-24">
+      {/* Main Core Showcase Grid */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+          
+          {/* LEFT: Premium Unsplash Showroom & Spec Telemetry Card */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -35 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative aspect-[4/5] bg-gray-100 border border-gray-200 overflow-hidden group flex-grow"
             >
-              <div className="aspect-[3/4] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Workshop" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
-              </div>
-              <div className="absolute -bottom-8 -right-8 bg-[#111111] border-l-8 border-primary text-white p-8 max-w-xs shadow-2xl hidden md:block">
-                <h3 className="text-2xl font-black mb-2 uppercase tracking-tight">Since 2011</h3>
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Building trust through precision engineering.</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-sm font-black uppercase tracking-widest text-[#E50914] mb-2">The RideX Philosophy</h2>
-              <h3 className="text-4xl md:text-5xl font-black text-[#111111] mb-8 uppercase tracking-tighter">We Don't Just Fix Bikes,<br/>We Elevate The Ride.</h3>
+              <img 
+                src="https://content3.jdmagicbox.com/v2/comp/bangalore/p7/080pxx80.xx80.161116184838.y4p7/catalogue/bike-magic-plus-jc-road-bangalore-motorcycle-accessory-dealers-jgab7joqvl.jpg" 
+                alt="Bike Magic JC Road Hub" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 filter contrast-[1.15]" 
+              />
               
-              <div className="space-y-6 text-gray-600 font-bold leading-relaxed mb-10 text-sm">
-                <p>Founded by a group of passionate racers and mechanics, RideX was born from a simple idea: riders deserve a workshop that treats their machines with the same obsession they do.</p>
-                <p>Over the past decade, we have grown from a small neighborhood garage into a state-of-the-art service center and premium accessories destination. We source only the finest parts and employ master technicians.</p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-8">
-                <div className="bg-white p-6 border-l-4 border-[#111111] shadow-sm">
-                  <Target className="w-8 h-8 text-primary mb-4" />
-                  <h4 className="text-[#111111] font-black uppercase mb-2 text-sm tracking-wider">Our Mission</h4>
-                  <p className="text-xs font-bold text-gray-500">To provide unparalleled motorcycle care and equip riders for the journey ahead.</p>
-                </div>
-                <div className="bg-white p-6 border-l-4 border-primary shadow-sm">
-                  <Award className="w-8 h-8 text-[#111111] mb-4" />
-                  <h4 className="text-[#111111] font-black uppercase mb-2 text-sm tracking-wider">Quality Guarantee</h4>
-                  <p className="text-xs font-bold text-gray-500">Every service comes with our personal seal of approval and quality warranty.</p>
-                </div>
+              {/* Floating Address Overlay */}
+              <div className="absolute bottom-6 left-6 right-6 bg-black/90 border-l-[3px] border-primary p-5 border border-gray-950 backdrop-blur-md">
+                <h4 className="text-xs font-black uppercase tracking-widest text-primary mb-1 font-display">
+                  JC Road HQ Showroom
+                </h4>
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider leading-relaxed">
+                  Opposite Canara Bank, 3rd Cross, JC Road, Bangalore - 560002
+                </p>
               </div>
             </motion.div>
           </div>
+
+          {/* RIGHT: Real Description and Verified Listing Attributes */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: 35 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col h-full justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-primary font-display block mb-2">
+                  THE BENGALURU LEGEND
+                </span>
+                <h2 className="text-3xl md:text-5xl font-black text-[#111111] mb-8 uppercase tracking-tighter font-display leading-tight">
+                  ESTABLISHED MODIFICATION STUDIO
+                </h2>
+
+                {/* Google Verified Card Attributes */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                  <div className="bg-[#F4F4F4] border border-gray-200 p-4 flex items-center gap-4 hover:border-primary transition-colors">
+                    <Star className="w-7 h-7 text-yellow-500 fill-yellow-500 shrink-0" />
+                    <div>
+                      <h4 className="text-xs font-black text-[#111111] uppercase tracking-wider font-display">Google Store Score</h4>
+                      <p className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">4.3 Stars rating</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#F4F4F4] border border-gray-200 p-4 flex items-center gap-4 hover:border-primary transition-colors">
+                    <Compass className="w-7 h-7 text-primary shrink-0 animate-pulse" />
+                    <div>
+                      <h4 className="text-xs font-black text-[#111111] uppercase tracking-wider font-display">Classification</h4>
+                      <p className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Motorcycle parts store</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* REAL DESCRIPTION */}
+                <div className="space-y-6 text-gray-600 font-semibold leading-relaxed text-xs uppercase tracking-wider mb-10 border-l-[3px] border-primary pl-6">
+                  <p>
+                    Bike Magic is a motorcycle accessories and parts store located on JC Road, Bengaluru — an area widely known as the city’s main market for bike modifications, riding gear, spare parts, and touring accessories.
+                  </p>
+                  <p>
+                    The store mainly serves motorcycle enthusiasts looking for aftermarket upgrades, touring setups, protection accessories, lighting systems, and customization work.
+                  </p>
+                </div>
+              </div>
+
+              {/* Action Buttons Call / Directions */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-gray-200 mt-auto">
+                <a 
+                  href="tel:09828525294"
+                  className="bg-primary hover:bg-black hover:text-white text-white py-4 font-black uppercase tracking-widest text-[10px] font-display flex items-center justify-center gap-2 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" /> Call: 098285 25294
+                </a>
+                
+                <a 
+                  href="https://maps.google.com/?q=Bike+Magic+JC+Road+Bangalore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white hover:bg-black hover:text-white text-[#111111] py-4 font-black uppercase tracking-widest text-[10px] font-display flex items-center justify-center gap-2 border border-gray-300 transition-colors"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-primary animate-bounce" /> Directions
+                </a>
+              </div>
+
+            </motion.div>
+          </div>
+
+        </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-24 bg-[#111111] border-y-8 border-primary">
-        <div className="absolute inset-0 opacity-10 dense-pattern pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-sm font-black uppercase tracking-widest text-[#E50914] mb-2">The Experts</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter">Meet Our Team</h3>
-            <div className="w-24 h-2 bg-primary mx-auto"></div>
-          </div>
-
+      {/* JC ROAD CREDENTIALS PANEL */}
+      <section className="py-20 bg-black border-y border-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[ 
-              { name: 'Alex Thompson', role: 'Head Mechanic', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-              { name: 'Sarah Miller', role: 'Accessories Specialist', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-              { name: 'David Chen', role: 'Performance Tuner', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
-            ].map((member, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-                className="group cursor-pointer"
-              >
-                <div className="aspect-[3/4] overflow-hidden mb-6 filter grayscale group-hover:grayscale-0 transition-all duration-500 border-b-4 border-white group-hover:border-primary">
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover mix-blend-luminosity opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                </div>
-                <div className="text-center">
-                  <h4 className="text-xl font-black text-white mb-1 uppercase tracking-wider">{member.name}</h4>
-                  <p className="text-primary text-[10px] font-bold tracking-widest uppercase">{member.role}</p>
-                </div>
-              </motion.div>
-            ))}
+            
+            <div className="bg-[#1C1B1B]/40 border border-gray-950 p-6 flex items-start gap-4">
+              <ShieldCheck className="w-6 h-6 text-primary shrink-0" />
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider font-display mb-1">JC ROAD SPECIALISTS</h4>
+                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-relaxed">
+                  Located in the beating heart of Bangalore's legendary bike modifications hub.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-[#1C1B1B]/40 border border-gray-950 p-6 flex items-start gap-4">
+              <ShieldCheck className="w-6 h-6 text-primary shrink-0" />
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider font-display mb-1">ENTHUSIAST CENTRIC</h4>
+                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-relaxed">
+                  Engineered and curated precisely for riders who demand performance upgrades.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-[#1C1B1B]/40 border border-gray-950 p-6 flex items-start gap-4">
+              <ShieldCheck className="w-6 h-6 text-primary shrink-0" />
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-wider font-display mb-1">COURIER DISPATCH</h4>
+                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-relaxed">
+                  Fast packing, verified courier tracks, and dispatch support across India.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
+
     </div>
   );
 }
