@@ -134,25 +134,88 @@ export default function HeroSlider() {
                 <div className="h-1.5 bg-white w-3/4 max-w-md mt-3 mb-8 shadow-lg"></div>
 
                 {/* Shop Now Button */}
-                <Link to="/services" className="inline-flex items-center gap-1 bg-[#F97316] text-white px-8 py-3.5 text-sm font-black uppercase hover:bg-[#EA580C] transition-all shadow-xl shadow-[#F97316]/20 font-display">
-                  Shop now <ArrowRight className="w-4 h-4 ml-1" />
+                <Link to="/services" className="inline-flex items-center gap-2 bg-[#F97316] text-white px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-[#EA580C] hover:scale-[1.02] transition-all shadow-xl shadow-[#F97316]/20 font-display relative overflow-hidden group">
+                  <span className="relative z-10 flex items-center gap-1">
+                    Shop now <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1.5 transition-transform duration-300" />
+                  </span>
                 </Link>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Right Column has been removed for a cleaner layout */}
+          {/* Right Column: Dynamic Spec Telemetry Panel */}
+          <div className="lg:col-span-5 hidden lg:flex flex-col justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`spec-${current}`}
+                initial={{ opacity: 0, x: 30, scale: 0.98 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -20, scale: 0.98 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="backdrop-blur-md bg-black/45 border border-white/10 p-8 shadow-2xl relative overflow-hidden"
+              >
+                {/* Corner Bracket Accents */}
+                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#F97316]/45" />
+                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#F97316]/45" />
+                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#F97316]/45" />
+                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#F97316]/45" />
+
+                {/* Telemetry Header */}
+                <div className="flex justify-between items-center mb-6">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 bg-[#F97316] rounded-full animate-pulse" />
+                    <span className="text-[10px] font-black tracking-widest text-gray-400 uppercase font-mono">SYSTEM TELEMETRY</span>
+                  </div>
+                  <span className="text-[9px] font-black bg-[#F97316]/10 text-[#F97316] px-3 py-1 border border-[#F97316]/20 uppercase tracking-widest font-mono">
+                    {activeSlide.pricing}
+                  </span>
+                </div>
+
+                {/* Spec Title */}
+                <h3 className="text-xl font-black text-white uppercase tracking-tight font-display mb-6 border-b border-white/10 pb-4">
+                  {activeSlide.specTitle}
+                </h3>
+
+                {/* Specs List */}
+                <div className="space-y-4 font-mono text-[11px] uppercase tracking-wider">
+                  {activeSlide.specs.map((spec, idx) => (
+                    <div key={idx} className="flex flex-col gap-1.5 border-b border-white/5 pb-3 last:border-b-0 last:pb-0">
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="text-gray-400 font-medium">{spec.name}</span>
+                        <span className="text-white font-bold">{spec.val}</span>
+                      </div>
+                      {/* Interactive Progress Bar */}
+                      <div className="h-1 bg-gray-950 w-full overflow-hidden relative">
+                        <motion.div
+                          initial={{ width: "0%" }}
+                          animate={{ width: "100%" }}
+                          transition={{ duration: 1.5, ease: "easeOut", delay: idx * 0.1 }}
+                          className="h-full bg-[#F97316]"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
         </div>
       </div>
 
-      {/* Floating Side Action Bar */}
-      <div className="absolute top-1/2 -translate-y-1/2 right-0 bg-[#F97316] rounded-l-2xl shadow-xl z-30 hidden xl:flex flex-col items-center py-6 px-3.5 gap-6">
-        <a href="https://wa.me/919828525294" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white hover:text-[#25D366] transition-colors" fill="currentColor" viewBox="0 0 16 16">
+      {/* Floating Side WhatsApp Action Button */}
+      <div className="absolute top-1/2 -translate-y-1/2 right-6 z-30 hidden xl:flex">
+        <a 
+          href="https://wa.me/919828525294" 
+          target="_blank" 
+          rel="noreferrer" 
+          className="bg-[#25D366] text-white p-3.5 rounded-full shadow-2xl hover:scale-110 hover:bg-[#128C7E] transition-all duration-300 flex items-center justify-center border-2 border-white/20"
+          aria-label="Contact on WhatsApp"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z" />
           </svg>
         </a>
-
       </div>
 
       {/* Bottom Dashboard Slider Indicators (Premium Progress Meters) */}
