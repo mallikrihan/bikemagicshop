@@ -273,7 +273,7 @@ export default function Home() {
 
                   <div className="mt-4 pt-3 border-t border-gray-100 flex justify-between items-center">
                     <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest font-display">In Stock</span>
-                    <Link to="/store" className="bg-[#111111] text-white px-4 py-2 text-[9px] font-black uppercase tracking-widest group-hover:bg-primary transition-colors font-display">
+                    <Link to="/services" className="bg-[#111111] text-white px-4 py-2 text-[9px] font-black uppercase tracking-widest group-hover:bg-primary transition-colors font-display">
                       VIEW GEAR
                     </Link>
                   </div>

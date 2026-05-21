@@ -50,7 +50,13 @@ export default function Stories() {
               </div>
               
               <div className="flex items-center gap-6 mb-8 mt-4">
-                <img src={story.img} alt={story.name} className="w-20 h-20 object-cover grayscale border-4 border-[#111111]" />
+                <div className="w-20 h-20 bg-gradient-to-br from-[#1C1B1B] to-black border-4 border-[#111111] flex items-center justify-center shadow-lg relative overflow-hidden shrink-0 select-none font-display">
+                  {/* Premium racing speed line decoration */}
+                  <div className="absolute top-0 right-0 w-2.5 h-full bg-primary/20 transform skew-x-12 translate-x-1.5" />
+                  <span className="text-white text-3xl font-black relative z-10 leading-none pt-0.5">
+                    {story.name.charAt(0)}
+                  </span>
+                </div>
                 <div>
                   <h3 className="text-2xl font-black text-[#111111] uppercase tracking-tighter">{story.name}</h3>
                   <p className="text-primary font-bold text-[10px] tracking-widest uppercase">{story.bike}</p>

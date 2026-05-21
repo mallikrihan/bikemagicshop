@@ -3,9 +3,27 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert('Message sent! We will get back to you shortly.');
+    const formData = new FormData(e.currentTarget);
+    const fullName = formData.get('fullName') as string;
+    const phone = formData.get('phone') as string;
+    const email = formData.get('email') as string;
+    const service = formData.get('service') as string;
+    const message = formData.get('message') as string;
+
+    const whatsappMessage = `*New Contact Inquiry*\n\n` +
+      `*Name:* ${fullName}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Email:* ${email}\n` +
+      `*Service Required:* ${service}\n` +
+      `*Message:* ${message}`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/919828525294?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -43,22 +61,22 @@ export default function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">Full Name</label>
-                  <input type="text" required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm" />
+                  <input type="text" name="fullName" required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">Phone</label>
-                  <input type="tel" required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm" />
+                  <input type="tel" name="phone" required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">Email</label>
-                <input type="email" required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm" />
+                <input type="email" name="email" required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm" />
               </div>
 
               <div>
                 <label className="block text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">Service Required / Subject</label>
-                <select className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors appearance-none font-bold text-sm">
+                <select name="service" className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors appearance-none font-bold text-sm">
                   <option>General Inquiry</option>
                   <option>Book a Service</option>
                   <option>Parts & Accessories</option>
@@ -68,7 +86,7 @@ export default function Contact() {
 
               <div>
                 <label className="block text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2">Message</label>
-                <textarea rows={5} required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm"></textarea>
+                <textarea name="message" rows={5} required className="w-full bg-[#F3F4F6] border-l-4 border-transparent focus:border-primary text-[#111111] px-4 py-3 focus:outline-none transition-colors font-bold text-sm"></textarea>
               </div>
 
               <button type="submit" className="w-full py-4 bg-[#111111] text-white font-black uppercase tracking-widest text-xs hover:bg-primary transition-colors flex items-center justify-center gap-2">

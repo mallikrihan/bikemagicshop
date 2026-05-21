@@ -148,15 +148,11 @@ export default function HeroSlider() {
       {/* Floating Side Action Bar */}
       <div className="absolute top-1/2 -translate-y-1/2 right-0 bg-[#F97316] rounded-l-2xl shadow-xl z-30 hidden xl:flex flex-col items-center py-6 px-3.5 gap-6">
         <a href="https://wa.me/919828525294" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform">
-          <div className="bg-white rounded-full p-1.5 shadow-md">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#25D366]" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z" />
-            </svg>
-          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white hover:text-[#25D366] transition-colors" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z" />
+          </svg>
         </a>
-        <a href="mailto:info@bikemagicshop.com" className="hover:scale-110 transition-transform">
-          <Mail className="w-6 h-6 text-white" />
-        </a>
+
       </div>
 
       {/* Bottom Dashboard Slider Indicators (Premium Progress Meters) */}
